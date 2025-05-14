@@ -1,5 +1,5 @@
 <?php
-
+require_once '../Repository/Db.php';
 trait GetterSetter{
 
     public function __get($name)
@@ -25,23 +25,26 @@ class Book
     private string $category;
 
     private bool $hardcover;
-    private array $author;
+    private int $author_id;
 
-    public function __construct($id, $isbn, $publication_date, $pages, $title, $price, $category, $author)
+    public function __construct($id, $isbn, $publication_date, $pages, $title, $price, $category, $hardcover, $author_id)
     {
         $this->id = $id;
         $this->isbn = $isbn;
-        $this->publication_date = $publication_date;
+        $this->publication_date = new DateTime($publication_date);
         $this->pages = $pages;
         $this->title = $title;
         $this->price = $price;
         $this->category = $category;
-        $this->author = $author;
+        $this->hardcover = $hardcover;
+        $this->author_id = $author_id;
+
     }
+
 
 }
 
-$test = new Book(1,'9874640', new DateTime('2025-01-01'), 230,
-    'Crime and punishment', 49.99, 'Fiction', ['abc', 'bdc']);
-
-echo $test->category;
+//$test = new Book(1,'9874640', new DateTime('2025-01-01'), 230,
+//    'Crime and punishment', 49.99, 'Fiction', ['abc', 'bdc']);
+//
+//echo $test->category;

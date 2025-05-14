@@ -1,5 +1,6 @@
 <?php
-require_once 'Db.php';
+require_once '../Repository/Db.php';
+
 
 trait GetterSetter{ // using trait to avoid writing many getters and setters
     public function __get($name)
@@ -46,8 +47,8 @@ public function getbooks(): array // to access the books from an array
 
 }
 
-$author = new Author(1, 'fyodor', 'dosto', '1821-11-11', 'Russia', ['Crime and Punishment', 'Idiot']);
-//$author = new Author();
+//$author = new Author(1, 'fyodor', 'dosto', '1821-11-11', 'Russia', ['Crime and Punishment', 'Idiot']);
+//echo $author->fname;
 
 //foreach($author->getbooks() as $b){
 //        echo $b."\n";
